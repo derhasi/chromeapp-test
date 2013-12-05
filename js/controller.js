@@ -16,6 +16,8 @@
 function AppCtrl($scope) {
   $scope.newTodo = "";
 
+  $scope.title = foo();
+
   $scope.items = '';
 
   var initCallback = function(){

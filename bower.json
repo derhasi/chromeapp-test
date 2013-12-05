@@ -1,0 +1,21 @@
+{
+  "name": "dhtest",
+  "version": "0.0.1",
+  "authors": [
+    "Johannes Haseitl <johannes@undpaul.de>"
+  ],
+  "description": "dhtest",
+  "main": "window.html",
+  "dependencies": {
+    "angular": "1.2.3"
+  },
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

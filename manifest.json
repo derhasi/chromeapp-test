@@ -1,0 +1,20 @@
+{
+  "name": "DH Test!",
+  "description": "My first Chrome App.",
+  "version": "0.1",
+  "app": {
+    "background": {
+      "scripts": [
+        "js/app-background.js"
+      ]
+    }
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "icons": {
+    "16": "logo.png",
+    "128": "logo.png"
+  }
+}

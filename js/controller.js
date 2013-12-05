@@ -10,20 +10,44 @@
  * @param $scope
  * @param $location
  * @constructor
+ *
+ * @see http://www.recursiverobot.com/post/53767548784/angularjs-with-indexeddb-using-a-helper-library
  */
 function AppCtrl($scope) {
   $scope.newTodo = "";
 
-  $scope.todos = [];
-  $scope.items = [];
+  $scope.items = '';
 
-  $scope.addTodo = function() {
+  var initCallback = function(){
+    getItems();
+  };
 
-    $scope.todos.push($scope.newTodo);
+  var dataStore = new IDBStore('todos', initCallback);
 
-    console.log($scope.newTodo);
-    $scope.newTodo = "";
+  var getItemsSuccess = function(data){
+    $scope.items = data;
+    // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
+    $scope.$apply();
+  };
+
+  var errorCallback = function(){
+    console.log('error');
+  };
+
+  var getItems = function(){
+    dataStore.getAll(getItemsSuccess,errorCallback);
+    console.log('getItems');
+  };
+
+  $scope.deleteItem = function(item){
+    dataStore.remove(item,getItems,errorCallback);
   }
+
+  $scope.addItem = function(){
+    dataStore.put({'timeStamp': new Date().getTime(), 'text' : $scope.newTodo},getItems,errorCallback);
+    $scope.newTodo = '';
+  };
+
 }
 AppCtrl.$inject = ['$scope'];
 

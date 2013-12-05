@@ -7,7 +7,8 @@
   "description": "dhtest",
   "main": "window.html",
   "dependencies": {
-    "angular": "1.2.3"
+    "angular": "1.2.3",
+    "idbwrapper": "1.4.1"
   },
   "license": "MIT",
   "private": true,
